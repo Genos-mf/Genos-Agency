@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genos</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: white;
+            color: black;
+        }
+
+        body.dark-mode {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: black;
+            color: white;
+        }
+
+        body.dark-mode .navbar {
+            background: black;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        @font-face {
+            font-family: "Exo";
+            src: url("Exo-VariableFont_wght.ttf")format("truetype");
+            font-size: normal;
+            font-weight: 100 900;
+        }
+
+        #logo {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        #name {
+            font-family: "Exo", sans-serif;
+            font-size: 29px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .navbar {
+            margin-top: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: white;
+            padding-bottom: 12px;
+        }
+
+        .navbar span {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+        }
+
+
+        .navbar ul {
+            display: flex;
+            position: sticky;
+            list-style: none;
+            gap: 20px;
+            justify-content: right;
+            padding-right: 20px;
+            margin: 0;
+            align-items: center;
+        }
+        .navbar a{
+            color: inherit;
+            text-decoration: none;
+        }
+
+        #theme-toggle {
+            margin: 0%;
+            padding: 0%;
+            border-radius: 50%;
+            height: 30px;
+            width: 30px;
+            overflow: hidden;
+            transform: translateY(-1px);
+
+        }
+
+        #theme-toggle img {
+            display: block;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .heading {
+            font-size: 61px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .highlight {
+            position: relative;
+            display: inline-block;
+        }
+
+        .highlight::before {
+            content: "";
+            position: absolute;
+            right: 28px;
+            left: auto;
+            bottom: -1px;
+            width: 192px;
+            height: 9px;
+            border-bottom: 4px solid #ff5fe8;
+            border-radius: 50%;
+        }
+
+        body.dark-mode .highlight::before {
+            border-bottom-color: #f7ff84;
+        }
+
+        .subheading {
+            display: block;
+            font-size: 20px;
+            margin-top: 24px;
+        }
+
+        .about {
+            max-width: 700px;
+            text-align: left;
+            margin: 0 auto;
+        }
+
+        .contact {
+            display: flex;
+            gap: 20px;
+            text-align: left;
+            margin: 0 auto;
+            max-width: 700px;
+
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+            width: 920px;
+            margin: 0 auto;
+            margin-bottom: 40px;
+
+        }
+
+        .box {
+            min-height: 180px;
+            background-color: #eeeded;
+            border-radius: 14px;
+            font-size: 20px;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        body.dark-mode .box {
+            background-color: #373434;
+        }
+
+        .pname {
+            font-weight: 40px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            text-align: center;
+            margin-top: 20px;
+            flex-basis: 100%;
+
+        }
+
+        .btn {
+            background-color: #5bc5ab;
+            color: white;
+            cursor: pointer;
+            border-radius: 12px;
+            width: 90px;
+            margin: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            text-decoration: none;
+            height: 45px;
+            font-size: 17px;
+
+        }
+
+        .green {
+            background-color: #4cb358;
+        }
+
+        .phead {
+            grid-column: 1/-1;
+            font-size: 40px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .about {
+            margin-top: 50px;
+            border: #6b6a6a;
+            border-color: #373434;
+            padding: 24px;
+            border-radius: 14px;
+            box-sizing: border-box;
+            max-width: 800px;
+        }
+
+        .clogo {
+            justify-content: center;
+        }
+
+        .clogo img {
+            border-radius: 50%;
+            height: 30px;
+            width: 30px;
+            object-fit: cover;
+
+
+        }
+
+        .contact {
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            display: flex;
+            padding-bottom: 50px;
+        }
+
+        #home, #about, #contact, #projects {
+            scroll-margin-top: 90px;
+        }
+    </style>
+</head>
+
+<body id="home">
+
+    <div class="container">
+
+
+
+        <div class="navbar">
+            <span>
+                <div class="brand">
+                    <span><img id="logo" src="genos-pfp.webp"></span>
+                    <span id="name">Genos Agency</span>
+
+                </div>
+
+                <ul>
+                    <li><button id="theme-toggle" type="button" aria-label="Toggle dark mode">
+                            <img src="theme-mode-switch-button.webp" alt="Toggle dark mode">
+                        </button></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </span>
+
+        </div>
+
+
+        <div class="heading">
+            We Find The <span class="highlight">AI-SLOP </span> That <br>Your Ai Can Never
+            <span class="subheading">Many founders loose customers cause their site have slop<br>and they don't know
+                how to fix it.</span>
+        </div>
+
+
+
+        <div class="projects" id="projects">
+            <div class="phead">Clients we had worked previously</div>
+            <div class="box">
+                <div class="pname">BoringPDF</div>
+                <a class="btn blue" href="https://boringpdf.app" target="_blank">Open</a>
+                <a class="btn green" href="https://nkcbuilds.com" target="_blank">Contact</a>
+            </div>
+            <div class="box">
+                <div class="pname">GrindLens</div>
+                <a class="btn blue" href="https://grindlens.dev" target="_blank">Open</a>
+                <a class="btn green" href="https://x.com/harshith_irl" target="_blank">Contact</a>
+            </div>
+            <div class="box">
+                <div class="pname">Portfolio</div>
+                <a class="btn blue" href="https://google.com">Open</a>
+                <a class="btn green" href="https://github.com">Contact</a>
+            </div>
+            <div class="box">
+                <div class="pname">Empty Site</div>
+                <a class="btn blue">Open</a>
+                <a class="btn green">Contact</a>
+            </div>
+            <div class="box">
+                <div class="pname">Empty</div>
+                <a class="btn blue" href="https://google.com">Link</a>
+                <a class="btn green" href="https://github.com">Link</a>
+            </div>
+            <div class="box">
+                <div class="pname">Empty</div>
+                <a class="btn blue" href="https://google.com">Link</a>
+                <a class="btn green" href="https://github.com">Link</a>
+            </div>
+
+
+
+
+        </div>
+        <hr width="60%">
+
+        <div class="about" id="about">Hello, Genos here :)<br> <br>I'm the one who find the slop in your website.
+            <br>I had a long experience of building with Ai. In the beginning, I used to think it is the best website.
+            But later as the time passed, I realized there are some comman patterns and useless things which Ai keep
+            when you gave it less context(almost everyone does) and for that, we launched Genos Agency.
+
+            <br><br>
+            We get live with client and solve the problem figuring out with them, so they will be aware of common
+            mistakes.
+            Thankyou for visiting our site :)
+        </div>
+
+        <hr>
+
+
+        <div class="contact" id="contact">
+            Contact:
+            <a class="clogo" href="https://x.com/Genos_mf" target="_blank"><img
+                    src="https://imgs.search.brave.com/k6XKmTv29-emo4-sIJG3a9TltC_JxX3XJsI0q6AYJ8k/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/bWFnbmlmaWMuY29t/L2ZyZWUtdmVjdG9y/L3R3aXR0ZXItYXBw/LW5ldy1sb2dvLXgt/YmxhY2stYmFja2dy/b3VuZF8xMDE3LTQ1/NDI1LmpwZz9zZW10/PWFpc19oeWJyaWQm/dz03NDAmcT04MA"></a>
+            <a class="clogo" href="https://www.threads.com/@genos_invincible" target="_blank"><img
+                    src="https://imgs.search.brave.com/IQi0rxr5SrE0-F5DFgfFyzNfTNiPY4tY8Xssx3O0jBo/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9sb2dv/cy13b3JsZC5uZXQv/d3AtY29udGVudC91/cGxvYWRzLzIwMjMv/MDcvVGhyZWFkcy1T/eW1ib2wtNTAweDI4/MS5wbmc"></a>
+        </div>
+    </div>
+
+
+
+
+    </div>
+    <script>
+        const themeToggle = document.getElementById("theme-toggle");
+
+        themeToggle.addEventListener("click", () => {
+            const isDark = document.body.classList.toggle("dark-mode");
+            themeToggle.setAttribute("aria-pressed", isDark);
+
+
+        });
+    </script>
+</body>
+
+</html>
